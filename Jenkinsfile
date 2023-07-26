@@ -24,6 +24,7 @@ pipeline {
                 snapshotRepo: 'newereve-libs-snapshot'
               )
               rtMavenRun (
+                tool: 'MAVEN_3.9'
                 pom: 'pom.xml',
                 goals: 'mvn clean install',
                 deployerId: 'spc-daybuild'
