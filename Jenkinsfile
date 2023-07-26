@@ -26,7 +26,7 @@ pipeline {
               rtMavenRun (
                 tool: 'DEFAULT',
                 pom: 'pom.xml',
-                goals: 'mvn clean install',
+                goals: 'clean install',
                 deployerId: 'spc-daybuild'
               )
               rtPublishBuildInfo (
