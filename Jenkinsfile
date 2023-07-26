@@ -29,12 +29,12 @@ pipeline {
     }
     post {
         success {
-            mail subject: "your project is build succesful"
-                 body : "your spring project is succesful"
+            mail subject: 'your project is build succesful',
+                 body : 'your spring project is succesful'
         }
         failure {
-            mail subject: "your project has failed"
-                 body : "your spring project is failed kindly check"
+            mail subject: 'your project has failed',
+                 body : 'your spring project is failed kindly check'
         }
     }
 }
