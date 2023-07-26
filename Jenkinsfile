@@ -17,7 +17,21 @@ pipeline {
         }    
         stage('Build and package') {
            steps {
-              sh script: 'mvn package'
+              rtMavenDeployer (
+                id: 'spc-daybuild',
+                serverId: 'newinstance',
+                releaseRepo: 'newereve-libs-release',
+                snapshotRepo: 'newereve-libs-snapshot'
+              )
+              rtMavenRun (
+                pom: 'pom.xml',
+                goals: 'mvn clean install',
+                deployerId: 'spc-daybuild'
+              )
+              rtPublishBuildInfo (
+                serverId: 'newinstance'
+
+              )
            }
         }
         stage('artifacts and testresult') {
